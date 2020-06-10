@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
 	//4
 	glfwInit();
 	//5
-	GLFWwindow* window = glfwCreateWindow(640, 480, "OpenGL", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(640, 480, "OpenGL", glfwGetPrimaryMonitor(), NULL);
 	glfwMakeContextCurrent(window);
 	glewExperimental = GL_TRUE;
 	glewInit();
@@ -74,13 +74,13 @@ int main(int argc, char* argv[])
 	//10
 	while (!glfwWindowShouldClose(window))
 	{
-		if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-			//Move(ver);
-		}
 		if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 			glfwSetWindowShouldClose(window, GL_TRUE);	
 		glfwPollEvents();
 		glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
+		if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+			glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+		}
 		glClear(GL_COLOR_BUFFER_BIT);
 		glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 		glfwSwapBuffers(window);
