@@ -35,6 +35,9 @@ int main(int argc, char* argv[])
 	0.5f, -0.5f,
 	-0.5f, -0.5f
 	};
+	for (int a = 0; a < 6; a++) {
+		vertices[a] += 0.5f;	
+	}
 	GLuint vbo;
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
